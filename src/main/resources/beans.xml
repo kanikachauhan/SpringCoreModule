@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd">
+	<!-- <import resource="daos.xml"/> <import resource="services.xml"/> -->
+
+	<bean id="userone" name="tempone" class="com.springcore.beans.User">
+		<property name="userName" value="userone">
+		</property>
+	</bean>
+	<bean id="usertwo" name="temptwo" class="com.springcore.beans.User">
+		<property name="userName" value="usertwo">
+		</property>
+	</bean>
+	<bean id="userthree" name="tempthree" class="com.springcore.beans.User">
+		<property name="userName" value="userthree">
+		</property>
+	</bean>
+	<bean id="userfour" name="tempfour" class="com.springcore.beans.User">
+		<property name="userName" value="userfour">
+		</property>
+	</bean>
+	<bean id="innerBean" class="com.springcore.beans.User$Sample">
+		<constructor-arg ref="userfour"></constructor-arg>
+		<property name="innerName" value="innerBeanName"></property>
+	</bean>
+	<bean id="primaryUser" class="com.springcore.beans.PrimaryUser" parent="userone">
+			<property name="sweets" value="10"/>
+			<property name="dishes">
+				<list>
+					<value></value>
+				</list>
+			</property>
+	</bean>
+	
+	
+	
+	
+	<alias name="userone" alias="aliasOne" />
+	<alias name="userTwo" alias="aliasTwo" />
+	<alias name="tempthree" alias="aliasThree,aliasFour" />
+</beans>
