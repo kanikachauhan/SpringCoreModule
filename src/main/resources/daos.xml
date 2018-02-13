@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd">
+<!-- <bean id="demodaoBean" name="tempone" class="com.springcore.beans.User">
+	<property name="userName" value="demodaoBean">
+		</property>
+</bean>
+<bean id = "addressOne" class="com.springcore.beans.Address" scope="singleton">
+	<constructor-arg index="0" type="java.lang.String" value="82"/>
+	<constructor-arg index="1" type="java.lang.String" value="110092"/>
+	<constructor-arg index="2" type="java.lang.String" value="wall street"/>
+</bean>
+<bean id="exampleBean" class="com.springcore.beans.ExampleBean" init-method="initializeMethod" destroy-method="closeMethod">
+</bean> -->
+</beans>

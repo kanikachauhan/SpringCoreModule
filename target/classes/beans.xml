@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd">
-	<!-- <import resource="daos.xml"/> <import resource="services.xml"/> -->
+classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+classpath:org/springframework/context/config/spring-context-4.3.xsd">
+	 <!-- <import resource="daos.xml"></import> 
+	 <import resource="services.xml"></import> 
 
 	<bean id="userone" name="tempone" class="com.springcore.beans.User">
 		<property name="userName" value="userone">
@@ -17,7 +20,7 @@ classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd">
 		<property name="userName" value="userthree">
 		</property>
 	</bean>
-	<bean id="userfour" name="tempfour" class="com.springcore.beans.User">
+	<bean id="userfour" name="tempfour" class="com.springcore.beans.User" lazy-init="true">
 		<property name="userName" value="userfour">
 		</property>
 	</bean>
@@ -25,19 +28,49 @@ classpath:org/springframework/beans/factory/xml/spring-beans-4.3.xsd">
 		<constructor-arg ref="userfour"></constructor-arg>
 		<property name="innerName" value="innerBeanName"></property>
 	</bean>
-	<bean id="primaryUser" class="com.springcore.beans.PrimaryUser" parent="userone">
+	<bean id="primaryUser" class="com.springcore.beans.PrimaryUser" parent="userone" >
 			<property name="sweets" value="10"/>
 			<property name="dishes">
 				<list>
-					<value></value>
+					<value>1</value>
+					<value>2</value>
+					<value>3</value>
+					<value>4</value>
 				</list>
 			</property>
 	</bean>
-	
-	
-	
+	<bean id="secondaryUser" class="com.springcore.beans.SecondaryUser" scope="singleton">
+		<property name="goodieTypeMap">
+			<map>
+				<entry key="one" value="valueone"/>
+				<entry key="two" value="valuetwo"/>
+				<entry key="three" value="valuethree"/>
+				<entry key="four" value="valuefour"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="secondarypUser" class="com.springcore.beans.SecondaryUser" scope="prototype">
+		<property name="goodieTypeMap">
+			<map>
+				<entry key="one" value="valueone"/>
+				<entry key="two" value="valuetwo"/>
+				<entry key="three" value="valuethree"/>
+				<entry key="four" value="valuefour"/>
+			</map>
+		</property>
+	</bean>
+	<bean id="normalUser" class="com.springcore.beans.User" >
+		<property name="address" ref="addressOne"></property>
+	</bean>
+	<bean id="normalUser1" class="com.springcore.beans.User" >
+		<property name="address" ref="addressOne"></property>
+	</bean>
+	<bean id="normalUser2" class="com.springcore.beans.User" >
+		<property name="address" ref="addressOne"></property>
+	</bean>
 	
 	<alias name="userone" alias="aliasOne" />
 	<alias name="userTwo" alias="aliasTwo" />
-	<alias name="tempthree" alias="aliasThree,aliasFour" />
+	<alias name="tempthree" alias="aliasThree,aliasFour" /> -->
+	<context:annotation-config/>
 </beans>
